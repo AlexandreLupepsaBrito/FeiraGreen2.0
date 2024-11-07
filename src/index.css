@@ -137,6 +137,69 @@ main {
 /*                     CARRINHO                       */
 /*-----------------------------------------------------*/
 .container-carrinho {
+  padding: 20px;
+}
+
+.box-carrinho {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.quantity-controls {
+  display: flex;
+  gap: 5px;
+}
+
+.quantity-button {
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  background-color: #4CAF50;;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-button:hover {
+  background-color: #4CAF50;;
+}
+
+.remove-button {
+  padding: 2px 6px; /* Reduzindo o padding */
+  background-color: #4CAF50;;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px; /* Reduzindo o tamanho da fonte */
+  cursor: pointer;
+  width: auto; /* Ajustando a largura automaticamente */
+}
+
+.remove-button:hover {
+  background-color: #f10f0f;;
+}
+
+
+
+.container-carrinho {
   display: flex;
   align-items: flex-start; /* Certifica-se de que os itens começam do topo */
   justify-content: center;

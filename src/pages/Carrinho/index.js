@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+
 function Carrinho() {
   const [cartItems, setCartItems] = useState([]);
   const [total, setTotal] = useState(0);
@@ -18,11 +19,10 @@ function Carrinho() {
     const cartCookie = cookies.find(row => row.startsWith('cart='));
     const cart = cartCookie ? JSON.parse(cartCookie.split('=')[1]) : [];
 
-    // Adiciona `quantity: 1` como padrão se não estiver definido
     const cartWithQuantities = cart.map(item => ({
       ...item,
       quantity: item.quantity || 1,
-      price: parseFloat(item.price) || 0, // Garante que `price` seja numérico
+      price: parseFloat(item.price) || 0,
     }));
 
     setCartItems(cartWithQuantities);
@@ -90,9 +90,11 @@ function Carrinho() {
                   <span>{item.name}</span>
                   <span>R$ {item.price.toFixed(2)}</span>
                   <span>Quantidade: {item.quantity}</span>
-                  <button onClick={() => increaseQuantity(item.id)}>+</button>
-                  <button onClick={() => decreaseQuantity(item.id)}>-</button>
-                  <button onClick={() => removeItemFromCart(item.id)}>Remover</button>
+                  <div className="quantity-controls">
+                    <button className="quantity-button" onClick={() => increaseQuantity(item.id)}>+</button>
+                    <button className="quantity-button" onClick={() => decreaseQuantity(item.id)}>-</button>
+                  </div>
+                  <button className="remove-button" onClick={() => removeItemFromCart(item.id)}>Remover</button>
                 </li>
               ))}
             </ul>
